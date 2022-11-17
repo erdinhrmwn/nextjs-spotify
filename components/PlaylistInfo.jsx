@@ -14,7 +14,7 @@ const PlaylistInfo = ({ playlist }) => {
 			<div className='space-y-4'>
 				<p className='text-sm'>PLAYLIST</p>
 				<h1 className='text-3xl md:text-4xl xl:text-5xl font-bold'>{playlist.name}</h1>
-				<p className='text-gray-400'>{unescape(playlist.description)}</p>
+				<p className='text-[#b3b3b3]'>{unescape(playlist.description)}</p>
 			</div>
 		</section>
 	);

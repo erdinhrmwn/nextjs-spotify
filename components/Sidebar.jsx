@@ -1,6 +1,5 @@
-import { ArrowLeftOnRectangleIcon, HeartIcon, HomeIcon, MagnifyingGlassIcon, PlusCircleIcon, Square3Stack3DIcon } from "@heroicons/react/24/outline";
-import { signOut, useSession } from "next-auth/react";
-import Link from "next/link";
+import { HeartIcon, HomeIcon, MagnifyingGlassIcon, PlusCircleIcon, Square3Stack3DIcon } from "@heroicons/react/24/outline";
+import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { playlistIdState } from "../atoms/playlistAtom";
@@ -19,7 +18,7 @@ const Sidebar = () => {
 	}, [session, spotifyApi]);
 
 	return (
-		<nav className='text-gray-400 p-5 text-sm border-r border-gray-900 overflow-y-scroll w-72 h-screen sm:max-w-[12rem] lg:max-w-[15rem]'>
+		<nav className='text-gray-400 p-5 text-sm border-r border-gray-900 overflow-y-scroll w-72 h-screen sm:max-w-[12rem] lg:max-w-[15rem] hidden md:inline-flex pb-36 scrollbar-hide'>
 			<div className='space-y-4'>
 				<button className='flex items-center space-x-2 hover:text-white'>
 					<HomeIcon className='h-5 w-5' />
@@ -46,7 +45,7 @@ const Sidebar = () => {
 				<hr className='border-t-[0.1px] border-gray-900' />
 
 				{playlists.map((playlist) => (
-					<p className='cursor-pointer hover:text-white truncate' key={playlist.id} onClick={() => setPlaylistId(playlist.id)}>
+					<p className='cursor-pointer hover:text-white' key={playlist.id} onClick={() => setPlaylistId(playlist.id)}>
 						{playlist.name}
 					</p>
 				))}

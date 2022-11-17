@@ -4,16 +4,15 @@ import Song from "./Song";
 
 const PlaylistTracks = ({ playlistId }) => {
 	const spotifyApi = useSpotify();
-
 	const [tracks, setTracks] = useState([]);
 
-	const loadPlaylistTracks = async (playlistId) => {
-		const data = await spotifyApi.getPlaylistTracks(playlistId);
-		setTracks(data.body.items);
-	};
-
 	useEffect(() => {
-		loadPlaylistTracks(playlistId);
+		const loadPlaylistTracks = async () => {
+			const data = await spotifyApi.getPlaylistTracks(playlistId);
+			setTracks(data.body.items);
+		};
+
+		loadPlaylistTracks();
 	}, [playlistId]);
 
 	return (
